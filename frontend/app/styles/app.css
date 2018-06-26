@@ -1,0 +1,18 @@
+.feature-test {
+  display: flex;
+}
+
+.feature-test-title {
+  width: 200px;
+  font-size: 22px;
+}
+
+.feature-test label select {
+  width: 200px;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.save-tests {
+  height: 32px;
+}
