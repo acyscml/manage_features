@@ -50,7 +50,6 @@ module('Integration | Feature Page', function(hooks) {
         return [200, {"Content-Type": "application/json"}, JSON.stringify({data: feature})];
       });
     });
-
   });
 
   hooks.afterEach(function() {
