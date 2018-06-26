@@ -1,0 +1,9 @@
+<h1 id="title">Features</h1>
+<br/>
+<button class="save-tests" {{action 'createFeature'}}>Create new feature</button>
+<br/>
+<hr/>
+<br/>
+{{#each sortedContent as |feature|}}
+  <p>{{link-to feature.name 'feature' feature.id }}</p>
+{{/each}}

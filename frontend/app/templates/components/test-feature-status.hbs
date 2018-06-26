@@ -1,0 +1,10 @@
+<div class='feature-test'>
+  <div class='feature-test-title'>{{test.name}}</div>
+  <label>
+    <select onchange={{action 'onSelectStatus' value="target.value"}}>
+      {{#each (statuses test.store) as |status|}}
+        <option value={{status.id}} selected={{eq test.status status.name}}>{{status.name}}</option>
+      {{/each}}
+    </select>
+  </label>
+</div>

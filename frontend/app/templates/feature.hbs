@@ -1,0 +1,17 @@
+<h1 id="title">{{model.name}}</h1>
+<br/>
+<button class="save-tests" {{action 'createFeatureTest'}}>Create new test</button>
+<br/>
+<hr/>
+<br/>
+<form {{action "saveTest" on="submit"}}>
+  {{#each model.featureTests as |test|}}
+    {{test-feature-status test=test}}
+  {{/each}}
+  <br/>
+  <button class='save-tests' type="submit">Save</button>
+</form>
+<hr/>
+{{#link-to "features"}}
+  Go to Features
+{{/link-to}}
