@@ -1,0 +1,38 @@
+---
+language: node_js
+node_js:
+  - "6"
+
+sudo: false
+dist: trusty
+
+addons:
+  chrome: stable
+
+cache:
+  directories:
+    - $HOME/.npm
+    - node_modules
+
+env:
+  global:
+    # See https://git.io/vdao3 for details.
+    - JOBS=1
+
+before_install:
+  - gem install hiptest-publisher
+  - cd frontend
+  - npm config set spin false
+  - hiptest-publisher -c hiptest-publisher.conf --test-run-id=167663 --only=features
+
+install:
+  - npm install -g ember-cli
+
+script:
+  - cd frontend
+  - ember test
+  - cd ../manager_features
+  - rspec spec
+
+after_script:
+  - hiptest-publisher -c frontend/hiptest-publisher.conf --push=report.xml --test-run-id=167663
