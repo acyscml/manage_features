@@ -20,10 +20,8 @@ env:
     - JOBS=1
 
 before_install:
-  - gem install hiptest-publisher
   - cd frontend
   - npm config set spin false
-  - hiptest-publisher -c hiptest-publisher.conf --test-run-id=167663 --only=features
 
 install:
   - npm install -g ember-cli
@@ -33,6 +31,3 @@ script:
   - ember test
   - cd ../manager_features
   - rspec spec
-
-after_script:
-  - hiptest-publisher -c frontend/hiptest-publisher.conf --push=report.xml --test-run-id=167663
